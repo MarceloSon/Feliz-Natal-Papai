@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Marcelo Filho" />
+    <meta name="description" content="Presente de Natal" />
+    <title>The Christmas Site</title>
+    <link rel="icon" href="img/image.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/papai.css" />
+  </head>
+
+  <body>
+    <!-- ===== HEADER ===== -->
+    <header>
+      <h1 class="h1_header">
+        <span class="m_header">M</span><span class="e_header">e</span>
+        <span class="r_header">r</span><span class="r2_header">r</span>
+        <span class="y_header">y</span>&ThickSpace;
+        <span class="c_header">C</span><span class="h_header">h</span>
+        <span class="r3_header">r</span><span class="i_header">i</span>
+        <span class="s_header">s</span><span class="t_header">t</span>
+        <span class="m2_header">m</span><span class="a_header">a</span>
+        <span class="s2_header">s</span>
+      </h1>
+
+      <nav>
+        <ul class="ul_header">
+          <li>
+            <a href="#" id="btn-cat" class="link_header">Gatinha</a>
+          </li>
+          <li>
+            <a href="#" id="btn-santa" class="link_header">Papai Noel</a>
+          </li>
+          <li>
+            <a href="index.html" class="link_header" onclick="setBg('red')"
+              >Red Background</a
+            >
+          </li>
+          <li>
+            <a href="green.html" class="link_header" onclick="setBg('green')"
+              >Green Background</a
+            >
+          </li>
+          <li>
+            <a href="papai.html" class="link_header"
+              >O papai é o meu melhor amigo!</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ===== MAIN ===== -->
+    <main class="main">
+      <h2 class="main__h2">O papai é o meu melhor amigo!</h2>
+    </main>
+
+    <!-- ===== PERSONAGENS ===== -->
+    <img
+      src="img/standing-removebg-preview.png"
+      alt="Papai Noel"
+      id="santa"
+      class="character"
+      width="352px"
+      height="709px"
+    />
+
+    <img
+      src="img/cat-standing.png"
+      alt="Gatinha"
+      id="cat"
+      class="character"
+      width="431px"
+      height="324px"
+    />
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      Copyright © 2026&ThickSpace;
+      <span class="nowrap">Marcelo Filho</span>
+    </footer>
+
+    <!-- ===== SCRIPT ===== -->
+    <script>
+      const santa = document.getElementById("santa");
+      const cat = document.getElementById("cat");
+
+      document.getElementById("btn-santa").addEventListener("click", (e) => {
+        e.preventDefault();
+        santa.classList.remove("walk");
+        void santa.offsetWidth; // reinicia a animação
+        santa.classList.add("walk");
+      });
+
+      document.getElementById("btn-cat").addEventListener("click", (e) => {
+        e.preventDefault();
+        cat.classList.remove("walk");
+        void cat.offsetWidth;
+        cat.classList.add("walk");
+      });
+      function setBg(theme) {
+        if (theme === "red") {
+          localStorage.setItem("bgImage", "url('img/4075.jpg')");
+        }
+
+        if (theme === "green") {
+          localStorage.setItem("bgImage", "url('img/green.jpg')");
+        }
+      }
+
+      const savedBg = localStorage.getItem("bgImage");
+
+      if (savedBg) {
+        document.body.style.backgroundImage = savedBg;
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundPosition = "center";
+      }
+    </script>
+  </body>
+</html>
