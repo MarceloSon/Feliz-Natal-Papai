@@ -99,23 +99,17 @@
         void cat.offsetWidth;
         cat.classList.add("walk");
       });
-      function setBg(theme) {
-        if (theme === "red") {
-          localStorage.setItem("bgImage", "url('img/4075.jpg')");
-        }
+      function setBg(img) {
+      localStorage.setItem("bgImage", img);
+      document.body.style.backgroundImage = `url(${img})`;
+    }
 
-        if (theme === "green") {
-          localStorage.setItem("bgImage", "url('img/green.jpg')");
-        }
-      }
+    const bg = localStorage.getItem("bgImage");
+    if (bg) {
+      document.body.style.backgroundImage = `url(${bg})`;
+    }
 
-      const savedBg = localStorage.getItem("bgImage");
-
-      if (savedBg) {
-        document.body.style.backgroundImage = savedBg;
-        document.body.style.backgroundSize = "cover";
-        document.body.style.backgroundPosition = "center";
-      }
     </script>
   </body>
 </html>
+
